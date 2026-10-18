@@ -1,0 +1,433 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T21:35:46+00:00",
+  "title": "Design System: Сводка",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Холодный бетон",
+        "canonical": "oklch(94.5% 0.005 258)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232426",
+          "#3e4042",
+          "#5c5e60",
+          "#7c7d80",
+          "#9d9ea1",
+          "#c2c4c7",
+          "#edeff2"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Белый лист",
+        "canonical": "oklch(100.0% 0.000 90)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Чернила",
+        "canonical": "oklch(18.2% 0.004 264)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232426",
+          "#3e4042",
+          "#5c5e60",
+          "#7c7d80",
+          "#9d9ea1",
+          "#c3c4c7",
+          "#edeef1"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Мягкие чернила",
+        "canonical": "oklch(37.4% 0.013 262)",
+        "tonalRamp": [
+          "#080b11",
+          "#21242b",
+          "#3c4047",
+          "#5a5e65",
+          "#797d85",
+          "#9a9fa7",
+          "#bfc4cd",
+          "#eaeff8"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Приглушённый",
+        "canonical": "oklch(52.2% 0.016 258)",
+        "tonalRamp": [
+          "#070b12",
+          "#1f242c",
+          "#3b4048",
+          "#585e67",
+          "#787e87",
+          "#989fa9",
+          "#bec5cf",
+          "#e8effa"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Линейка",
+        "canonical": "oklch(88.4% 0.009 258)",
+        "tonalRamp": [
+          "#090b0f",
+          "#212429",
+          "#3d4045",
+          "#5a5e63",
+          "#7a7d83",
+          "#9b9fa4",
+          "#c0c4ca",
+          "#ebeff5"
+        ]
+      },
+      "night": {
+        "role": "tertiary",
+        "displayName": "Ночь",
+        "canonical": "oklch(18.2% 0.004 264)",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#232426",
+          "#3e4042",
+          "#5c5e60",
+          "#7c7d80",
+          "#9d9ea1",
+          "#c3c4c7",
+          "#edeef1"
+        ]
+      },
+      "night-soft": {
+        "role": "tertiary",
+        "displayName": "Дымчатый",
+        "canonical": "oklch(80.0% 0.014 262)",
+        "tonalRamp": [
+          "#080b11",
+          "#20242b",
+          "#3c4047",
+          "#595e66",
+          "#797d86",
+          "#9a9fa7",
+          "#bfc4cd",
+          "#e9eff8"
+        ]
+      },
+      "yellow": {
+        "role": "secondary",
+        "displayName": "Троллейбусный жёлтый",
+        "canonical": "oklch(87.9% 0.162 91)",
+        "tonalRamp": [
+          "#1e0100",
+          "#3e1900",
+          "#5f3600",
+          "#805600",
+          "#a17600",
+          "#c49800",
+          "#ebbf1f",
+          "#ffeb72"
+        ]
+      },
+      "yellow-ink": {
+        "role": "secondary",
+        "displayName": "Жёлтые чернила",
+        "canonical": "oklch(21.7% 0.025 98)",
+        "tonalRamp": [
+          "#0e0b02",
+          "#272416",
+          "#434031",
+          "#615e4e",
+          "#817e6d",
+          "#a29f8d",
+          "#c8c5b2",
+          "#f3efdc"
+        ]
+      },
+      "yellow-soft": {
+        "role": "secondary",
+        "displayName": "Тёмная охра",
+        "canonical": "oklch(36.9% 0.064 95)",
+        "tonalRamp": [
+          "#140900",
+          "#2e2300",
+          "#4a3f12",
+          "#695d32",
+          "#897d51",
+          "#aa9f71",
+          "#d1c495",
+          "#fbefbf"
+        ]
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Чернильный синий",
+        "canonical": "oklch(43.3% 0.249 267)",
+        "tonalRamp": [
+          "#0c0055",
+          "#0d0084",
+          "#1415b7",
+          "#243fe7",
+          "#3d67ff",
+          "#5a8cff",
+          "#80b7ff",
+          "#b2e7ff"
+        ]
+      },
+      "blue-soft": {
+        "role": "primary",
+        "displayName": "Бледно-синий",
+        "canonical": "oklch(86.2% 0.063 280)",
+        "tonalRamp": [
+          "#080624",
+          "#1f1f41",
+          "#393c60",
+          "#565a81",
+          "#7679a2",
+          "#969bc5",
+          "#bbc0ed",
+          "#e6ebff"
+        ]
+      },
+      "right": {
+        "role": "semantic",
+        "displayName": "Верно",
+        "canonical": "oklch(49.2% 0.109 157)",
+        "tonalRamp": [
+          "#001500",
+          "#00320a",
+          "#005026",
+          "#0e6f44",
+          "#3b9062",
+          "#5fb383",
+          "#85daa8",
+          "#afffd1"
+        ]
+      },
+      "wrong": {
+        "role": "semantic",
+        "displayName": "Неверно",
+        "canonical": "oklch(50.1% 0.178 29)",
+        "tonalRamp": [
+          "#310000",
+          "#5a0000",
+          "#850000",
+          "#ac1d17",
+          "#d2463a",
+          "#f96a5b",
+          "#ff927f",
+          "#ffc4b2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Заголовок статьи и рубрики."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Заголовок главной карточки поверх фото и широкой истории."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Заголовок обычной карточки ленты."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Крупная цифра цветной карточки и счёт теста."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Лиды карточек и статьи, Literata."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Текст статьи в колонке 680px."
+      },
+      "ui": {
+        "displayName": "UI",
+        "purpose": "Интерфейс по умолчанию, навигация, пункты «Коротко»."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Мета: формат и дата, табличные цифры."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hero-scrim",
+        "value": "linear-gradient(to top, rgb(10 11 13 / 0.92) 0%, rgb(10 11 13 / 0.65) 38%, rgb(10 11 13 / 0) 70%)",
+        "purpose": "Не тень: затемнение снизу главной карточки под белым заголовком. Теней в системе нет."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Приближение фото в карточке (scale 1.04, 400ms) и нажатие варианта теста; выключено при prefers-reduced-motion."
+      },
+      {
+        "name": "state-color",
+        "value": "0.2s",
+        "purpose": "Смена цвета и рамки у навигации и вариантов теста."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ],
+    "focus": {
+      "value": "outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px",
+      "purpose": "Единая обводка фокуса."
+    }
+  },
+  "components": [
+    {
+      "name": "Карточка новости",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Белый лист без тени: заголовок, лид, мета внизу. Основа ленты.",
+      "html": "<a class=\"ds-card\" href=\"#\"><div class=\"ds-card-body\"><h2 class=\"ds-card-title\">Центральная библиотека будет открыта до 22:00</h2><p class=\"ds-card-lead\">Продлённые часы — по будням. В читальном зале добавят розетки.</p><p class=\"ds-card-meta\"><span>Новость</span><time>18 октября, 08:45</time></p></div></a>",
+      "css": ":host { --ground:#ebedf0; --surface:#ffffff; --ink:#111214; --ink-soft:#3d4148; --muted:#646a73; --rule:#d5d9df; --night:#111214; --night-soft:#b9bec7; --yellow:#ffd23f; --yellow-ink:#1d1a0c; --yellow-soft:#4a3f12; --blue:#1c2bd6; --blue-soft:#c9cefb; --right:#157347; --wrong:#b3261e; --radius:8px; --ease-out:cubic-bezier(0.16, 1, 0.3, 1); } .ds-card { display:flex; flex-direction:column; min-height:300px; width:320px; background:var(--surface); color:var(--ink); border-radius:var(--radius); overflow:hidden; font-family:var(--font-sans), 'Golos Text', system-ui, sans-serif; text-decoration:none; } .ds-card-body { display:flex; flex-direction:column; gap:10px; flex:1; padding:18px 20px 20px; } .ds-card-title { margin:0; font-size:21px; line-height:1.18; font-weight:700; letter-spacing:-0.015em; text-wrap:balance; } .ds-card-lead { margin:0; font-family:var(--font-serif), Literata, Georgia, serif; font-size:16px; line-height:1.45; color:var(--ink-soft); } .ds-card-meta { margin:auto 0 0; padding-top:8px; display:flex; gap:4px 12px; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; } .ds-card-meta span:first-child { font-weight:600; } .ds-card:hover .ds-card-title { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; } .ds-card:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }"
+    },
+    {
+      "name": "Карточка истории",
+      "kind": "card",
+      "refersTo": "card-story",
+      "description": "Чёрный лист для историй и разборов; вторичный текст night-soft.",
+      "html": "<a class=\"ds-card ds-card-story\" href=\"#\"><div class=\"ds-card-body\"><h2 class=\"ds-card-title\">Дома, которые не снесут. Как живут пятиэтажки</h2><p class=\"ds-card-meta\"><span>История</span><time>17 октября, 19:00</time></p></div></a>",
+      "css": ":host { --ground:#ebedf0; --surface:#ffffff; --ink:#111214; --ink-soft:#3d4148; --muted:#646a73; --rule:#d5d9df; --night:#111214; --night-soft:#b9bec7; --yellow:#ffd23f; --yellow-ink:#1d1a0c; --yellow-soft:#4a3f12; --blue:#1c2bd6; --blue-soft:#c9cefb; --right:#157347; --wrong:#b3261e; --radius:8px; --ease-out:cubic-bezier(0.16, 1, 0.3, 1); } .ds-card { display:flex; flex-direction:column; min-height:300px; width:320px; background:var(--surface); color:var(--ink); border-radius:var(--radius); overflow:hidden; font-family:var(--font-sans), 'Golos Text', system-ui, sans-serif; text-decoration:none; } .ds-card-body { display:flex; flex-direction:column; gap:10px; flex:1; padding:18px 20px 20px; } .ds-card-title { margin:0; font-size:21px; line-height:1.18; font-weight:700; letter-spacing:-0.015em; text-wrap:balance; } .ds-card-lead { margin:0; font-family:var(--font-serif), Literata, Georgia, serif; font-size:16px; line-height:1.45; color:var(--ink-soft); } .ds-card-meta { margin:auto 0 0; padding-top:8px; display:flex; gap:4px 12px; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; } .ds-card-meta span:first-child { font-weight:600; } .ds-card:hover .ds-card-title { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; } .ds-card:focus-visible { outline:2px solid var(--blue); outline-offset:3px; } .ds-card-story { background:var(--night); color:#fff; } .ds-card-story .ds-card-meta { color:var(--night-soft); }"
+    },
+    {
+      "name": "Карточка объяснения (жёлтая)",
+      "kind": "card",
+      "refersTo": "card-cards",
+      "description": "Жёлтое поле формата «карточки» и «тест»: иконка формата, заголовок, лид, крупная цифра.",
+      "html": "<a class=\"ds-card ds-card-color ds-card-cards\" href=\"#\"><div class=\"ds-card-body\"><svg class=\"ds-card-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3.25\" y=\"5.75\" width=\"10.5\" height=\"11\" rx=\"1.5\"/><path d=\"M6.25 3.25h9a1.5 1.5 0 0 1 1.5 1.5v9.5\"/></svg><h2 class=\"ds-card-title\">Новые правила парковки в центре. Объясняем в карточках</h2><p class=\"ds-card-lead\">Что меняется с ноября и где парковка останется бесплатной.</p><p class=\"ds-card-figure\">4 карточки</p><p class=\"ds-card-meta\"><span>Карточки</span><time>17 октября, 15:30</time></p></div></a>",
+      "css": ":host { --ground:#ebedf0; --surface:#ffffff; --ink:#111214; --ink-soft:#3d4148; --muted:#646a73; --rule:#d5d9df; --night:#111214; --night-soft:#b9bec7; --yellow:#ffd23f; --yellow-ink:#1d1a0c; --yellow-soft:#4a3f12; --blue:#1c2bd6; --blue-soft:#c9cefb; --right:#157347; --wrong:#b3261e; --radius:8px; --ease-out:cubic-bezier(0.16, 1, 0.3, 1); } .ds-card { display:flex; flex-direction:column; min-height:300px; width:320px; background:var(--surface); color:var(--ink); border-radius:var(--radius); overflow:hidden; font-family:var(--font-sans), 'Golos Text', system-ui, sans-serif; text-decoration:none; } .ds-card-body { display:flex; flex-direction:column; gap:10px; flex:1; padding:18px 20px 20px; } .ds-card-title { margin:0; font-size:21px; line-height:1.18; font-weight:700; letter-spacing:-0.015em; text-wrap:balance; } .ds-card-lead { margin:0; font-family:var(--font-serif), Literata, Georgia, serif; font-size:16px; line-height:1.45; color:var(--ink-soft); } .ds-card-meta { margin:auto 0 0; padding-top:8px; display:flex; gap:4px 12px; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; } .ds-card-meta span:first-child { font-weight:600; } .ds-card:hover .ds-card-title { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; } .ds-card:focus-visible { outline:2px solid var(--blue); outline-offset:3px; } .ds-card-color .ds-card-body { padding:22px; } .ds-card-color .ds-card-title { font-size:25px; line-height:1.12; } .ds-card-cards { background:var(--yellow); color:var(--yellow-ink); } .ds-card-cards .ds-card-lead, .ds-card-cards .ds-card-meta { color:var(--yellow-soft); } .ds-card-figure { margin:auto 0 0; padding-top:16px; font-size:44px; font-weight:800; line-height:1; letter-spacing:-0.03em; } .ds-card-figure + .ds-card-meta { margin-top:0; } .ds-card-icon { width:28px; height:28px; }"
+    },
+    {
+      "name": "Карточка подкаста (синяя)",
+      "kind": "card",
+      "refersTo": "card-podcast",
+      "description": "Синее поле подкаста с длительностью крупной цифрой.",
+      "html": "<a class=\"ds-card ds-card-color ds-card-podcast\" href=\"#\"><div class=\"ds-card-body\"><svg class=\"ds-card-icon\" width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"10\" cy=\"10\" r=\"8.25\"/><path d=\"M8.25 6.75v6.5L13.5 10z\" fill=\"currentColor\"/></svg><h2 class=\"ds-card-title\">Зачем городу ночные автобусы</h2><p class=\"ds-card-lead\">Новый выпуск подкаста: кто ездит после полуночи.</p><p class=\"ds-card-figure\">32 минуты</p><p class=\"ds-card-meta\"><span>Подкаст</span><time>16 октября, 10:00</time></p></div></a>",
+      "css": ":host { --ground:#ebedf0; --surface:#ffffff; --ink:#111214; --ink-soft:#3d4148; --muted:#646a73; --rule:#d5d9df; --night:#111214; --night-soft:#b9bec7; --yellow:#ffd23f; --yellow-ink:#1d1a0c; --yellow-soft:#4a3f12; --blue:#1c2bd6; --blue-soft:#c9cefb; --right:#157347; --wrong:#b3261e; --radius:8px; --ease-out:cubic-bezier(0.16, 1, 0.3, 1); } .ds-card { display:flex; flex-direction:column; min-height:300px; width:320px; background:var(--surface); color:var(--ink); border-radius:var(--radius); overflow:hidden; font-family:var(--font-sans), 'Golos Text', system-ui, sans-serif; text-decoration:none; } .ds-card-body { display:flex; flex-direction:column; gap:10px; flex:1; padding:18px 20px 20px; } .ds-card-title { margin:0; font-size:21px; line-height:1.18; font-weight:700; letter-spacing:-0.015em; text-wrap:balance; } .ds-card-lead { margin:0; font-family:var(--font-serif), Literata, Georgia, serif; font-size:16px; line-height:1.45; color:var(--ink-soft); } .ds-card-meta { margin:auto 0 0; padding-top:8px; display:flex; gap:4px 12px; font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; } .ds-card-meta span:first-child { font-weight:600; } .ds-card:hover .ds-card-title { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; } .ds-card:focus-visible { outline:2px solid var(--blue); outline-offset:3px; } .ds-card-color .ds-card-body { padding:22px; } .ds-card-color .ds-card-title { font-size:25px; line-height:1.12; } .ds-card-podcast { background:var(--blue); color:#fff; } .ds-card-podcast .ds-card-lead, .ds-card-podcast .ds-card-meta { color:var(--blue-soft); } .ds-card-figure { margin:auto 0 0; padding-top:16px; font-size:44px; font-weight:800; line-height:1; letter-spacing:-0.03em; } .ds-card-figure + .ds-card-meta { margin-top:0; } .ds-card-icon { width:28px; height:28px; }"
+    },
+    {
+      "name": "Главная карточка",
+      "kind": "card",
+      "refersTo": "card-hero",
+      "description": "Фото на весь лист, белый заголовок поверх затемнения снизу; 8 колонок.",
+      "html": "<a class=\"ds-hero\" href=\"#\"><div class=\"ds-hero-media\"></div><div class=\"ds-hero-body\"><h2 class=\"ds-hero-title\">Набережную откроют после реконструкции 1 ноября</h2><p class=\"ds-hero-lead\">Новые спуски к воде и освещение по всей длине.</p><p class=\"ds-hero-meta\"><span>Новость</span><time>18 октября, 13:40</time></p></div></a>",
+      "css": ":host { --ground:#ebedf0; --surface:#ffffff; --ink:#111214; --ink-soft:#3d4148; --muted:#646a73; --rule:#d5d9df; --night:#111214; --night-soft:#b9bec7; --yellow:#ffd23f; --yellow-ink:#1d1a0c; --yellow-soft:#4a3f12; --blue:#1c2bd6; --blue-soft:#c9cefb; --right:#157347; --wrong:#b3261e; --radius:8px; --ease-out:cubic-bezier(0.16, 1, 0.3, 1); } .ds-hero { position:relative; display:flex; flex-direction:column; justify-content:flex-end; min-height:420px; width:640px; border-radius:var(--radius); overflow:hidden; isolation:isolate; background:var(--night); color:#fff; font-family:var(--font-sans), 'Golos Text', system-ui, sans-serif; text-decoration:none; } .ds-hero-media { position:absolute; inset:0; z-index:-1; background:#5d6b78; } .ds-hero-media::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgb(10 11 13 / 0.92) 0%, rgb(10 11 13 / 0.65) 38%, rgb(10 11 13 / 0) 70%); } .ds-hero-body { padding:28px; display:flex; flex-direction:column; gap:10px; } .ds-hero-title { margin:0; font-size:clamp(28px, 3.4vw, 42px); line-height:1.08; font-weight:700; letter-spacing:-0.025em; } .ds-hero-lead { margin:0; font-family:var(--font-serif), Literata, Georgia, serif; font-size:18px; line-height:1.45; color:rgb(255 255 255 / 0.86); } .ds-hero-meta { margin:0; display:flex; gap:12px; font-size:13px; color:rgb(255 255 255 / 0.72); } .ds-hero-meta span { font-weight:600; } .ds-hero:hover .ds-hero-title { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; } .ds-hero:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }"
+    },
+    {
+      "name": "«Коротко»",
+      "kind": "custom",
+      "refersTo": "briefing",
+      "description": "Хроника коротких новостей с линией времени; свежий пункт отмечен синей точкой.",
+      "html": "<section class=\"ds-brief\"><h2 class=\"ds-brief-title\">Коротко</h2><ol class=\"ds-brief-list\"><li class=\"is-latest\"><time>12:55</time><a href=\"#\">С понедельника трамваи на двух линиях будут ходить реже</a></li><li><time>11:20</time><a href=\"#\">В северном районе отключат горячую воду</a></li><li><time>10:05</time><a href=\"#\">Первые остановки с подогревом поставили на окраинах</a></li></ol><a class=\"ds-brief-more\" href=\"#\">Все новости</a></section>",
+      "css": ":host { --ground:#ebedf0; --surface:#ffffff; --ink:#111214; --ink-soft:#3d4148; --muted:#646a73; --rule:#d5d9df; --night:#111214; --night-soft:#b9bec7; --yellow:#ffd23f; --yellow-ink:#1d1a0c; --yellow-soft:#4a3f12; --blue:#1c2bd6; --blue-soft:#c9cefb; --right:#157347; --wrong:#b3261e; --radius:8px; --ease-out:cubic-bezier(0.16, 1, 0.3, 1); } .ds-brief { width:320px; background:var(--surface); color:var(--ink); border-radius:var(--radius); padding:20px 20px 18px; display:flex; flex-direction:column; font-family:var(--font-sans), 'Golos Text', system-ui, sans-serif; } .ds-brief-title { margin:0 0 14px; font-size:15px; font-weight:700; letter-spacing:0.02em; } .ds-brief-list { list-style:none; margin:0; position:relative; display:flex; flex-direction:column; gap:16px; padding:0 0 0 18px; } .ds-brief-list::before { content:''; position:absolute; left:3px; top:6px; bottom:6px; width:1px; background:var(--rule); } .ds-brief-list li { position:relative; display:grid; gap:2px; } .ds-brief-list li::before { content:''; position:absolute; left:-18px; top:6px; width:7px; height:7px; box-sizing:border-box; border-radius:50%; background:var(--surface); border:1px solid #9aa0a9; } .ds-brief-list li.is-latest::before { left:-19px; top:5px; width:9px; height:9px; box-sizing:content-box; background:var(--blue); border:2px solid var(--surface); outline:1px solid var(--blue); } .ds-brief-list time { font-size:13px; font-weight:600; color:var(--muted); font-variant-numeric:tabular-nums; } .ds-brief-list li.is-latest time { color:var(--blue); } .ds-brief-list a { color:inherit; text-decoration:none; font-size:16px; line-height:1.3; font-weight:500; } .ds-brief-list a:hover, .ds-brief-more:hover { text-decoration:underline; text-underline-offset:3px; } .ds-brief-more { padding-top:18px; font-size:14px; font-weight:600; color:var(--blue); text-decoration:none; } .ds-brief a:focus-visible { outline:2px solid var(--blue); outline-offset:3px; border-radius:2px; }"
+    },
+    {
+      "name": "Шапка с рубриками",
+      "kind": "nav",
+      "refersTo": "masthead",
+      "description": "Белая липкая шапка 56px: знак, рубрики, дата; активная рубрика подчёркнута синим.",
+      "html": "<header class=\"ds-mast\"><a class=\"ds-word\" href=\"#\"><span class=\"ds-word-mark\"></span>Сводка</a><nav class=\"ds-nav\"><a href=\"#\">Новости</a><a href=\"#\" aria-current=\"page\">Истории</a><a href=\"#\">Карточки</a><a href=\"#\">Тесты</a><a href=\"#\">Подкасты</a></nav><span class=\"ds-date\">18 октября</span></header>",
+      "css": ":host { --ground:#ebedf0; --surface:#ffffff; --ink:#111214; --ink-soft:#3d4148; --muted:#646a73; --rule:#d5d9df; --night:#111214; --night-soft:#b9bec7; --yellow:#ffd23f; --yellow-ink:#1d1a0c; --yellow-soft:#4a3f12; --blue:#1c2bd6; --blue-soft:#c9cefb; --right:#157347; --wrong:#b3261e; --radius:8px; --ease-out:cubic-bezier(0.16, 1, 0.3, 1); } .ds-mast { display:flex; align-items:center; gap:28px; height:56px; padding:0 24px; background:var(--surface); border-bottom:1px solid var(--rule); font-family:var(--font-sans), 'Golos Text', system-ui, sans-serif; color:var(--ink); } .ds-word { display:flex; align-items:center; gap:8px; font-weight:800; font-size:22px; letter-spacing:-0.03em; color:inherit; text-decoration:none; } .ds-word-mark { width:14px; height:14px; border-radius:3px; background:conic-gradient(from 90deg at 55% 55%, var(--yellow) 0 25%, var(--blue) 0); } .ds-nav { display:flex; gap:22px; font-size:15px; font-weight:500; color:var(--ink-soft); } .ds-nav a { color:inherit; text-decoration:none; padding:17px 0 15px; border-bottom:2px solid transparent; transition:color 0.2s, border-color 0.2s; } .ds-nav a:hover { color:var(--ink); } .ds-nav a[aria-current='page'] { color:var(--ink); border-bottom-color:var(--blue); } .ds-nav a:focus-visible { outline:2px solid var(--blue); outline-offset:3px; border-radius:2px; } .ds-date { margin-left:auto; font-size:14px; color:var(--muted); }"
+    },
+    {
+      "name": "Вариант ответа теста",
+      "kind": "button",
+      "refersTo": "quiz-option",
+      "description": "Полноширинная кнопка ответа; верно/неверно окрашивают рамку и текст.",
+      "html": "<div class=\"ds-opts\"><button class=\"ds-opt\">Заречный район</button><button class=\"ds-opt is-right\" disabled>Старый город</button><button class=\"ds-opt is-wrong\" disabled>Левый берег</button></div>",
+      "css": ":host { --ground:#ebedf0; --surface:#ffffff; --ink:#111214; --ink-soft:#3d4148; --muted:#646a73; --rule:#d5d9df; --night:#111214; --night-soft:#b9bec7; --yellow:#ffd23f; --yellow-ink:#1d1a0c; --yellow-soft:#4a3f12; --blue:#1c2bd6; --blue-soft:#c9cefb; --right:#157347; --wrong:#b3261e; --radius:8px; --ease-out:cubic-bezier(0.16, 1, 0.3, 1); } .ds-opts { display:grid; gap:8px; width:360px; } .ds-opt { font-family:var(--font-sans), 'Golos Text', system-ui, sans-serif; font-size:17px; text-align:left; padding:14px 16px; border-radius:var(--radius); border:1px solid var(--rule); background:var(--surface); color:var(--ink); cursor:pointer; transition:background-color 0.2s, border-color 0.2s, transform 0.2s var(--ease-out); } .ds-opt:hover:not(:disabled) { border-color:var(--ink); } .ds-opt:active:not(:disabled) { transform:scale(0.985); } .ds-opt:focus-visible { outline:2px solid var(--blue); outline-offset:3px; } .ds-opt:disabled { cursor:default; color:var(--muted); } .ds-opt.is-right { background:#e3f4ea; border-color:var(--right); color:var(--right); font-weight:600; } .ds-opt.is-wrong { background:#fbe9e7; border-color:var(--wrong); color:var(--wrong); }"
+    },
+    {
+      "name": "Результат теста",
+      "kind": "button",
+      "refersTo": "quiz-retry",
+      "description": "Жёлтый блок результата со счётом и инверсной кнопкой повтора.",
+      "html": "<div class=\"ds-result\"><p class=\"ds-score\">2 из 3</p><p class=\"ds-result-text\">Вы хорошо знаете город.</p><button class=\"ds-retry\">Пройти ещё раз</button></div>",
+      "css": ":host { --ground:#ebedf0; --surface:#ffffff; --ink:#111214; --ink-soft:#3d4148; --muted:#646a73; --rule:#d5d9df; --night:#111214; --night-soft:#b9bec7; --yellow:#ffd23f; --yellow-ink:#1d1a0c; --yellow-soft:#4a3f12; --blue:#1c2bd6; --blue-soft:#c9cefb; --right:#157347; --wrong:#b3261e; --radius:8px; --ease-out:cubic-bezier(0.16, 1, 0.3, 1); } .ds-result { width:360px; padding:24px; border-radius:var(--radius); background:var(--yellow); color:var(--yellow-ink); display:grid; gap:8px; justify-items:start; font-family:var(--font-sans), 'Golos Text', system-ui, sans-serif; } .ds-result p { margin:0; } .ds-score { font-size:44px; font-weight:800; line-height:1; letter-spacing:-0.03em; font-variant-numeric:tabular-nums; } .ds-retry { margin-top:8px; font:inherit; font-weight:600; padding:10px 16px; border-radius:var(--radius); border:0; background:var(--yellow-ink); color:var(--yellow); cursor:pointer; } .ds-retry:focus-visible { outline:2px solid var(--blue); outline-offset:3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Цветная лента формата",
+    "overview": "Лента новостей на холодном светло-сером поле, где каждый формат приходит в своём материале: фотография для новости и главного, чёрный лист для истории, «троллейбусный» жёлтый для карточек и тестов, чернильный синий для подкаста, белый лист для текстовой заметки. Читатель различает формат по цвету и фактуре карточки ещё до заголовка; иерархия важности задаётся шириной карточки в 12-колоночной сетке, а не украшениями.\n\nСистема плотная и плоская. Карточки не отбрасывают теней и отделяются от фона только тоном и зазором; скругление одно на всё (8px). Заголовки и интерфейс набраны жирным, плотно трекованным Golos Text; лиды и тексты статей — спокойной книжной Literata. Время везде в табличных цифрах. Движение одно и сдержанное: фото внутри карточки мягко приближается при наведении.\n\nСтруктура страниц следует модели meduza.io (светло-серое поле, карточки разной ширины, крупное главное с фото, тёмные истории, цветные тесты и объяснения, колонка коротких новостей, узкая колонка текста в статье). Бренд Медузы не используется: название, знак, палитра и шрифты собственные; название «Сводка» — заглушка, меняется в одном месте.",
+    "keyCharacteristics": [
+      "Формат = материал карточки: фото, чёрный, жёлтый, синий, белый.",
+      "Важность = ширина в сетке (8 из 12 колонок для главного), не декор.",
+      "Плоские карточки без теней, одно скругление 8px.",
+      "Golos Text для заголовков и интерфейса, Literata для чтения.",
+      "Время и счёт в табличных цифрах."
+    ],
+    "rules": [
+      {
+        "name": "The Format Field Rule",
+        "body": "Цветное поле принадлежит формату, а не странице: жёлтый — только карточки и тесты, синий — только подкаст (плюс точечный акцент), чёрный — только истории, главное и футер. Новость никогда не красится.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Accent Rule",
+        "body": "Синий как акцент — это подчёркивание, точка, короткая ссылка или обводка фокуса; крупной заливкой он бывает только у подкаста.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Golos Text говорит заголовками, интерфейсом, метой и цифрами; Literata — только лидами и текстом статьи. Внутри интерактивных блоков статьи (тест, плеер, карточки объяснения) голос снова Golos Text.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Time Rule",
+        "body": "Всё время, даты и счёт набраны с `font-variant-numeric: tabular-nums`, чтобы столбец времени в «Коротко» стоял ровно.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Sheet Rule",
+        "body": "Карточка — лист без тени и без рамки; её отделяет от поля только тон. Состояние наведения не поднимает карточку: оно подчёркивает заголовок (2px, отступ 4px) и приближает фото (scale 1.04, 400ms, ease-out `cubic-bezier(0.16, 1, 0.3, 1)`), а при `prefers-reduced-motion` приближения нет.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** назначать цветное поле карточки по формату: история — night, карточки и тесты — yellow, подкаст — blue, новость — surface или фото.",
+      "**Do** выражать важность шириной в сетке (8 из 12 колонок для главного), а не цветом или размером шрифта сверх шкалы.",
+      "**Do** держать текст статьи в колонке 680px Literata 19px / 1.62.",
+      "**Do** ставить мету (формат + дата, 13px) внизу карточки, а время и счёт — табличными цифрами.",
+      "**Do** использовать для фокуса обводку 2px blue с отступом 3px.",
+      "**Do** отключать приближение фото при `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "**Don't** добавлять тени или рамки карточкам: лист отделяется от поля только тоном.",
+      "**Don't** красить новость в цвет формата и не использовать жёлтый или синий как фон вне своих форматов.",
+      "**Don't** вводить второе скругление для листов: 8px для всего, 4px только для фото в статье.",
+      "**Don't** набирать заголовки и интерфейс антиквой или текст статьи гротеском.",
+      "**Don't** переносить в интерфейс название, знак, фирменные цвета, шрифты или тексты Медузы: от meduza.io берётся только устройство страниц.",
+      "**Don't** ставить над заголовком карточки надпись-рубрику: формат сообщают поле, иконка и мета внизу."
+    ]
+  }
+}
