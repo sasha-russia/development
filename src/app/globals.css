@@ -1143,26 +1143,22 @@ time,
     line-height: 1.1;
   }
 
-  .card-text .card-title {
-    font-size: 26px;
-  }
-
   .card-color .card-lead {
     font-size: 17px;
   }
 }
 
-.card-duration {
+.card-figure {
   margin-top: auto;
   padding-top: 16px;
   font-size: 44px;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.03em;
-  color: #fff;
+  color: inherit;
 }
 
-.card-duration + .card-meta {
+.card-figure + .card-meta {
   margin-top: 0;
 }
 
@@ -1170,4 +1166,15 @@ time,
   .article-story .article-photo figcaption {
     padding: 0;
   }
+}
+
+/* Two short items sharing one cell. */
+
+.stack {
+  display: grid;
+  gap: var(--gap);
+}
+
+.stack .card {
+  min-height: 0;
 }
