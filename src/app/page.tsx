@@ -11,7 +11,7 @@ function pick(slug: string) {
 export default function Home() {
   const hero = pick("embankment-opening");
   const briefing = articles
-    .filter((a) => a.format === "news" && a !== hero && a.slug !== "library-hours")
+    .filter((a) => a.format === "news" && a !== hero)
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
     .slice(0, 6);
 
