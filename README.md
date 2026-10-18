@@ -18,7 +18,8 @@ npm run build    # статика в out/
 - `src/components` — компоненты (шапка, карточки)
 - `src/lib/news.ts` — временный источник материалов (позже заменим на CMS)
 - `.github/workflows/deploy.yml` — сборка и деплой на GitHub Pages при пуше в `main`
-- `infra/omniroute` — AI-шлюз OmniRoute (запускается на отдельном сервере, см. README внутри)
+- `.claude/skills` — skills для Claude Code: `impeccable` (дизайн, `/impeccable …`) и
+  `design-taste-frontend` (taste-skill)
 
 ## Деплой
 
