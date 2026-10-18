@@ -1,26 +1,37 @@
 import type { Metadata } from "next";
-import { PT_Serif, Inter } from "next/font/google";
+import { Golos_Text, Literata } from "next/font/google";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { articles, formatDay } from "@/lib/news";
+import { site } from "@/lib/site";
 import "./globals.css";
 
-const sans = Inter({ variable: "--font-sans", subsets: ["latin", "cyrillic"] });
-const serif = PT_Serif({
+const sans = Golos_Text({ variable: "--font-sans", subsets: ["latin", "cyrillic"] });
+const serif = Literata({
   variable: "--font-serif",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "Development — новости",
-  description: "Независимое новостное издание",
+  title: { default: site.name, template: `%s — ${site.name}` },
+  description: site.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const latest = articles.reduce((a, b) => (a.publishedAt > b.publishedAt ? a : b));
+
   return (
     <html lang="ru" className={`${sans.variable} ${serif.variable}`}>
       <body>
-        <Header />
-        <main className="main">{children}</main>
+        <a className="skip-link" href="#content">
+          К содержанию
+        </a>
+        <Header today={formatDay(latest.publishedAt)} />
+        <main id="content" className="page">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

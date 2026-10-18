@@ -43,3 +43,8 @@ next-env.d.ts
 
 # Impeccable engine binary: downloaded by the launcher on first use
 /.claude/skills/impeccable/scripts/bin/
+
+# Impeccable working files
+/.impeccable/review/
+/.impeccable/questions/
+/.impeccable/hook.cache.json
