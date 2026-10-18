@@ -1,0 +1,20 @@
+# OmniRoute — AI gateway (OpenAI-compatible endpoint in front of many LLM providers).
+# It is a server, so it runs on a separate host, not on GitHub Pages.
+services:
+  omniroute:
+    image: diegosouzapw/omniroute:3.8.51
+    container_name: omniroute
+    restart: unless-stopped
+    stop_grace_period: 40s
+    env_file: .env
+    environment:
+      PORT: 20128
+      REQUIRE_API_KEY: "true"
+    # Bound to localhost: expose it publicly only through a reverse proxy with HTTPS.
+    ports:
+      - "127.0.0.1:20128:20128"
+    volumes:
+      - omniroute-data:/app/data
+
+volumes:
+  omniroute-data:
