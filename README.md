@@ -19,7 +19,7 @@ npm run build    # статика в out/
 - `src/lib/news.ts` — временный источник материалов (позже заменим на CMS)
 - `.github/workflows/deploy.yml` — сборка и деплой на GitHub Pages при пуше в `main`
 - `.claude/skills` — skills для Claude Code: `impeccable` (дизайн, `/impeccable …`) и
-  `design-taste-frontend` (taste-skill)
+  `design-taste-frontend` (taste-skill), `animate` (анимации, Emil Kowalski)
 
 ## Деплой
 
