@@ -4,26 +4,24 @@ import { notFound } from "next/navigation";
 import Card from "@/components/Card";
 import { PlayIcon } from "@/components/Icons";
 import Quiz from "@/components/Quiz";
-import { articles, formatDate, formats, getArticle } from "@/lib/news";
+import { getArticle, getArticles, isDemo } from "@/lib/content";
+import { formatDate, formats } from "@/lib/news";
 import { asset } from "@/lib/site";
 
-export function generateStaticParams() {
-  return articles.map(({ slug }) => ({ slug }));
+export async function generateStaticParams() {
+  return (await getArticles()).map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/news/[slug]">) {
-  const article = getArticle((await params).slug);
+  const article = await getArticle((await params).slug);
   return article ? { title: article.title, description: article.lead } : {};
 }
 
 export default async function ArticlePage({ params }: PageProps<"/news/[slug]">) {
-  const article = getArticle((await params).slug);
+  const article = await getArticle((await params).slug);
   if (!article) notFound();
 
-  const related = articles
-    .filter((a) => a.slug !== article.slug)
-    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-    .slice(0, 3);
+  const related = (await getArticles()).filter((a) => a.slug !== article.slug).slice(0, 3);
 
   return (
     <>
@@ -50,10 +48,14 @@ export default async function ArticlePage({ params }: PageProps<"/news/[slug]">)
               />
             </div>
             <figcaption>
-              Иллюстрация.{" "}
-              <a href={article.photo.page} target="_blank" rel="noreferrer">
-                {article.photo.credit}
-              </a>
+              {isDemo && "Иллюстрация. "}
+              {article.photo.page ? (
+                <a href={article.photo.page} target="_blank" rel="noreferrer">
+                  {article.photo.credit}
+                </a>
+              ) : (
+                article.photo.credit
+              )}
             </figcaption>
           </figure>
         )}
@@ -86,7 +88,9 @@ export default async function ArticlePage({ params }: PageProps<"/news/[slug]">)
 
           {article.questions && <Quiz questions={article.questions} />}
 
-          <p className="article-demo">Демонстрационный материал: события и люди вымышлены.</p>
+          {isDemo && (
+            <p className="article-demo">Демонстрационный материал: события и люди вымышлены.</p>
+          )}
         </div>
       </article>
 

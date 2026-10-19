@@ -1178,3 +1178,7 @@ time,
 .stack .card {
   min-height: 0;
 }
+
+.more {
+  margin-top: 40px;
+}

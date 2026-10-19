@@ -16,7 +16,8 @@ npm run build    # статика в out/
 
 - `src/app` — страницы (лента, `/news/[slug]`)
 - `src/components` — компоненты (шапка, карточки)
-- `src/lib/news.ts` — временный источник материалов (позже заменим на CMS)
+- `src/lib/content.ts` — загрузка материалов: из редакционной системы, если задан `CMS_URL`, иначе демо-материалы из `src/lib/news.ts`
+- `cms/` — редакционная система: материалы, задачи, сотрудники, посты в Telegram/ВКонтакте/MAX (см. `cms/README.md`)
 - `.github/workflows/deploy.yml` — сборка и деплой на GitHub Pages при пуше в `main`
 - `.claude/skills` — skills для Claude Code: `impeccable` (дизайн, `/impeccable …`) и
   `design-taste-frontend` (taste-skill), `animate` (анимации, Emil Kowalski)

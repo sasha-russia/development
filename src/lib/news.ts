@@ -20,6 +20,8 @@ export type Article = {
   title: string;
   lead: string;
   publishedAt: string;
+  // Editor's pick for the lead slot on the home page.
+  featured?: boolean;
   photo?: Photo;
   body: string[];
   // "cards" format: each card is a heading and its explanation.
@@ -72,10 +74,11 @@ const photos = {
 } satisfies Record<string, Photo>;
 
 // Demo content: every article, name and number here is invented.
-export const articles: Article[] = [
+export const demoArticles: Article[] = [
   {
     slug: "embankment-opening",
     format: "news",
+    featured: true,
     title: "Набережную откроют после реконструкции 1 ноября. Что на ней изменилось",
     lead: "Новые спуски к воде, освещение по всей длине и велодорожка до моста. Кафе у причала откроется только весной.",
     publishedAt: "2026-10-18T13:40:00+03:00",
@@ -238,13 +241,6 @@ export const articles: Article[] = [
   },
 ];
 
-export function getArticle(slug: string) {
-  return articles.find((a) => a.slug === slug);
-}
-
-export function byFormat(format: Format) {
-  return articles.filter((a) => a.format === format);
-}
 
 const timeFormat = new Intl.DateTimeFormat("ru-RU", {
   hour: "2-digit",

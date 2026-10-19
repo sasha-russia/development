@@ -14,6 +14,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Third-party Claude Code skills, not site code.
     ".claude/**",
+    // The editorial system is a separate app with its own lint config.
+    "cms/**",
   ]),
 ]);
 

@@ -1,38 +1,48 @@
 import Briefing from "@/components/Briefing";
 import Card from "@/components/Card";
-import { articles, getArticle } from "@/lib/news";
+import { getArticles } from "@/lib/content";
+import { homeLayout } from "@/lib/layout";
 
-function pick(slug: string) {
-  const article = getArticle(slug);
-  if (!article) throw new Error(`Unknown article: ${slug}`);
-  return article;
-}
-
-export default function Home() {
-  const hero = pick("embankment-opening");
-  const briefing = articles
-    .filter((a) => a.format === "news" && a !== hero)
-    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
-    .slice(0, 6);
+export default async function Home() {
+  const { hero, briefing, row2, feature, side, row4, stack, more } = homeLayout(await getArticles());
 
   return (
-    <div className="grid">
-      <Card article={hero} span={8} lead priority />
-      <Briefing items={briefing} />
+    <>
+      <div className="grid">
+        {hero && <Card article={hero} span={8} lead priority />}
+        {briefing.length > 0 && <Briefing items={briefing} />}
 
-      <Card article={pick("five-storey")} />
-      <Card article={pick("parking-rules")} />
-      <Card article={pick("heated-stops")} />
+        {row2.map((a) => (
+          <Card key={a.slug} article={a} />
+        ))}
 
-      <Card article={pick("night-embankment")} span={8} lead />
-      <Card article={pick("podcast-night-buses")} />
+        {feature && <Card article={feature} span={side ? 8 : 12} lead />}
+        {side && <Card article={side} />}
 
-      <Card article={pick("guess-the-district")} />
-      <Card article={pick("tram-intervals")} />
-      <div className="stack span-4">
-        <Card article={pick("school-bus")} />
-        <Card article={pick("library-hours")} />
+        {row4.map((a) => (
+          <Card key={a.slug} article={a} />
+        ))}
+        {stack.length > 0 && (
+          <div className="stack span-4">
+            {stack.map((a) => (
+              <Card key={a.slug} article={a} />
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+
+      {more.length > 0 && (
+        <section className="more" aria-labelledby="more-title">
+          <h2 id="more-title" className="related-title">
+            Ещё
+          </h2>
+          <div className="grid">
+            {more.map((a) => (
+              <Card key={a.slug} article={a} />
+            ))}
+          </div>
+        </section>
+      )}
+    </>
   );
 }

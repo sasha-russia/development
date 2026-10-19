@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Golos_Text, Literata } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { articles, formatDay } from "@/lib/news";
+import { getArticles } from "@/lib/content";
+import { formatDay } from "@/lib/news";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -18,8 +19,8 @@ export const metadata: Metadata = {
   description: site.description,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
-  const latest = articles.reduce((a, b) => (a.publishedAt > b.publishedAt ? a : b));
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const [latest] = await getArticles();
 
   return (
     <html lang="ru" className={`${sans.variable} ${serif.variable}`}>
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a className="skip-link" href="#content">
           К содержанию
         </a>
-        <Header today={formatDay(latest.publishedAt)} />
+        <Header today={formatDay(latest?.publishedAt ?? new Date().toISOString())} />
         <main id="content" className="page">
           {children}
         </main>

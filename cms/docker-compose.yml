@@ -1,0 +1,32 @@
+# Local run:      docker compose up db   (then npm run dev)
+# Server (later): docker compose up -d   (builds the CMS image; put a reverse proxy with HTTPS in front)
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: payload
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-payload}
+      POSTGRES_DB: newsroom
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  cms:
+    build: .
+    restart: unless-stopped
+    profiles: ['server']
+    env_file: .env
+    environment:
+      DATABASE_URL: postgres://payload:${POSTGRES_PASSWORD:-payload}@db:5432/newsroom
+    ports:
+      - '127.0.0.1:3000:3000'
+    volumes:
+      - media:/app/media
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
+  media:

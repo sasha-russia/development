@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Card from "@/components/Card";
-import { byFormat, type Format, formats } from "@/lib/news";
+import { byFormat } from "@/lib/content";
+import { type Format, formats } from "@/lib/news";
 
 function isFormat(value: string): value is Format {
   return value in formats;
@@ -19,7 +20,7 @@ export default async function RubricPage({ params }: PageProps<"/rubric/[format]
   const { format } = await params;
   if (!isFormat(format)) notFound();
 
-  const items = byFormat(format).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  const items = await byFormat(format);
 
   return (
     <>

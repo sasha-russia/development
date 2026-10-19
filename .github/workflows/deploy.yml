@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Sent by the editorial system when an article is published, changed or removed.
+  repository_dispatch:
+    types: [cms-publish]
 
 permissions:
   contents: read
@@ -30,6 +33,8 @@ jobs:
       - run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          # Repository variable; when empty the site builds from its demo content.
+          CMS_URL: ${{ vars.CMS_URL }}
       - uses: actions/upload-pages-artifact@v4
         with:
           path: out

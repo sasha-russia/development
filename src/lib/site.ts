@@ -8,5 +8,5 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 // Static files under public/ need the GitHub Pages basePath prepended.
 export function asset(path: string) {
-  return `${basePath}${path}`;
+  return /^https?:\/\//.test(path) ? path : `${basePath}${path}`;
 }
