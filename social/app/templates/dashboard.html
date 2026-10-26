@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Карта{% endblock %}
+{% block head %}<link rel="stylesheet" href="/static/vendor/leaflet.css">{% endblock %}
+{% block main_class %}dash{% endblock %}
+{% block content %}
+{% include "_filters.html" %}
+<div class="dash-grid">
+  <section class="map-card">
+    <div id="map" aria-label="Тепловая карта проблем"></div>
+    <div class="legend" aria-hidden="true">
+      <span>меньше</span><i class="legend-bar"></i><span>больше проблем</span>
+    </div>
+    <p class="map-note muted" id="map-note"></p>
+  </section>
+  <aside class="side">
+    <div class="kpis">
+      <div class="kpi"><b id="k-total">–</b><span>сообщений</span></div>
+      <div class="kpi neg"><b id="k-negative">–</b><span>негатив</span></div>
+      <div class="kpi"><b id="k-problems">–</b><span>проблем</span></div>
+      <div class="kpi gov"><b id="k-governor">–</b><span>у губернатора</span></div>
+    </div>
+    <p class="period muted" id="period"></p>
+    <h2>По темам</h2>
+    <div id="topics" class="bars"></div>
+    <h2>Проблемы <a class="more" href="/problems">все</a></h2>
+    <ol id="problems" class="problem-list"></ol>
+  </aside>
+</div>
+<section class="queue-card">
+  <h2>Отработать в первую очередь <a class="more" href="/queue">вся очередь</a></h2>
+  <div id="queue" class="items"></div>
+</section>
+<dialog id="place">
+  <form method="dialog"><button class="close" aria-label="Закрыть">×</button></form>
+  <h2 id="place-title"></h2>
+  <div id="place-items" class="items"></div>
+</dialog>
+{% endblock %}
+{% block scripts %}
+<script src="/static/vendor/leaflet.js"></script>
+<script src="/static/vendor/leaflet-heat.js"></script>
+<script>window.CITY_CENTER = [55.9105, 37.7363];</script>
+<script src="/static/items.js"></script>
+<script src="/static/dashboard.js"></script>
+{% endblock %}

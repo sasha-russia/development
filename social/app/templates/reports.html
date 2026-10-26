@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}Отчёты{% endblock %}
+{% block content %}
+<h1>Отчёты</h1>
+<div class="report-grid">
+  <form class="card builder" method="get" action="/reports/view" id="builder">
+    <h2>Собрать отчёт</h2>
+    <fieldset class="kind-pick">
+      <legend>Вид</legend>
+      {% for k, v in kinds.items() %}
+      <label class="radio"><input type="radio" name="kind" value="{{ k }}" {% if loop.first %}checked{% endif %}> {{ v }}</label>
+      {% endfor %}
+    </fieldset>
+    <div data-for="daily topics">
+      <label>Отчёт на дату (8:00 этого дня)<input type="date" name="day" value="{{ today }}"></label>
+    </div>
+    <div data-for="topics">
+      <label>Период
+        <select name="period"><option value="day">Сутки</option><option value="week">Неделя</option></select></label>
+    </div>
+    <fieldset data-for="daily topics">
+      <legend>Темы <span class="muted">(пусто — все)</span></legend>
+      <div class="checks">
+      {% for key, label in TOPICS.items() %}
+        <label class="check"><input type="checkbox" name="topic" value="{{ key }}"> {{ label }}</label>
+      {% endfor %}
+      </div>
+    </fieldset>
+    <div data-for="daily topics" class="row">
+      <label>Соцсеть
+        <select name="platform"><option value="">Все</option><option value="tg">Telegram</option><option value="vk">ВКонтакте</option></select></label>
+      <label>Источники
+        <select name="role"><option value="">Все</option><option value="governor">Губернатор</option><option value="official">Администрация</option><option value="local">Сообщества</option></select></label>
+    </div>
+    <div data-for="problem">
+      <label>Проблема
+        <select name="problem_id">{% for p in problems %}<option value="{{ p.id }}">{{ p.title | truncate(80) }} ({{ fmt(p.last_seen) }})</option>{% endfor %}</select></label>
+    </div>
+    <div class="actions">
+      <button class="btn primary">Открыть отчёт</button>
+      <button class="btn" type="button" id="pdf">PDF</button>
+    </div>
+    <details class="save">
+      <summary>Сохранить как шаблон и отправлять в MAX по расписанию</summary>
+      <label>Название<input name="name" form="preset-form" placeholder="Утренний отчёт главе"></label>
+      <label class="check"><input type="checkbox" name="auto_send" form="preset-form"> Отправлять в MAX каждый день</label>
+      <label>Время отправки<input type="time" name="send_time" value="08:05" form="preset-form"></label>
+      {% if not max_ready %}<p class="muted">MAX пока не настроен: заполните MAX_BOT_TOKEN и MAX_CHAT_ID.</p>{% endif %}
+      <button class="btn" type="button" id="save-preset">Сохранить шаблон</button>
+    </details>
+  </form>
+  <form id="preset-form" method="post" action="/reports/presets" hidden></form>
+
+  <section>
+    <h2>Шаблоны</h2>
+    <table class="table">
+      <thead><tr><th>Название</th><th>Вид</th><th>MAX</th><th></th></tr></thead>
+      <tbody>
+      {% for p in presets %}
+      <tr>
+        <td><a href="/reports/view?{{ qs(p.kind, p.params) }}">{{ p.name }}</a></td>
+        <td>{{ kinds[p.kind] }}</td>
+        <td>{% if p.auto_send %}ежедневно в {{ p.send_time }}{% if p.last_sent %}<br><span class="muted">последний {{ fmt(p.last_sent) }}</span>{% endif %}{% else %}–{% endif %}</td>
+        <td><form method="post" action="/reports/presets/{{ p.id }}/delete" onsubmit="return confirm('Удалить шаблон?')"><button class="link">удалить</button></form></td>
+      </tr>
+      {% else %}<tr><td colspan="4" class="muted">Шаблонов пока нет.</td></tr>{% endfor %}
+      </tbody>
+    </table>
+    <h2>Отправки в MAX</h2>
+    <ul class="deliveries">
+      {% for d in deliveries %}
+      <li class="{{ 'ok' if d.ok else 'fail' }}"><b>{{ fmt(d.created_at) }}</b> {{ d.title | truncate(80) }} — {{ d.detail | truncate(160) }}</li>
+      {% else %}<li class="muted">Ещё ничего не отправляли.</li>{% endfor %}
+    </ul>
+  </section>
+</div>
+<script>
+const builder = document.getElementById("builder");
+function syncKind() {
+  const kind = builder.elements.kind.value;
+  builder.querySelectorAll("[data-for]").forEach((el) => {
+    const on = el.dataset.for.split(" ").includes(kind);
+    el.hidden = !on;
+    el.querySelectorAll("input, select").forEach((i) => (i.disabled = !on));
+  });
+}
+builder.addEventListener("change", syncKind);
+syncKind();
+document.getElementById("pdf").addEventListener("click", () => {
+  window.open("/reports/pdf?" + new URLSearchParams(new FormData(builder)), "_blank");
+});
+document.getElementById("save-preset").addEventListener("click", () => {
+  const target = document.getElementById("preset-form");
+  target.innerHTML = "";
+  for (const [k, v] of new FormData(builder)) {
+    const i = document.createElement("input");
+    i.type = "hidden"; i.name = k; i.value = v;
+    target.appendChild(i);
+  }
+  // The day stays "today" so a daily preset always reports the latest 8:00–8:00.
+  target.querySelectorAll('[name="day"]').forEach((i) => (i.value = "today"));
+  for (const el of document.querySelectorAll('[form="preset-form"]')) {
+    if (el.type === "checkbox" && !el.checked) continue;
+    const i = document.createElement("input");
+    i.type = "hidden"; i.name = el.name; i.value = el.type === "checkbox" ? "on" : el.value;
+    target.appendChild(i);
+  }
+  target.submit();
+});
+</script>
+{% endblock %}

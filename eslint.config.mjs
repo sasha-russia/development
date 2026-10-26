@@ -16,6 +16,8 @@ const eslintConfig = defineConfig([
     ".claude/**",
     // The editorial system is a separate app with its own lint config.
     "cms/**",
+    // The social media monitor is a separate Python app.
+    "social/**",
   ]),
 ]);
 

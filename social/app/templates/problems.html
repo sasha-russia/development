@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Проблемы{% endblock %}
+{% block content %}
+<h1>Проблемы</h1>
+<form class="toolbar" method="get">
+  <select name="period" onchange="this.form.submit()">
+    {% for key, (label, _) in periods.items() %}<option value="{{ key }}" {% if key == period %}selected{% endif %}>{{ label }}</option>{% endfor %}
+  </select>
+  <select name="topic" onchange="this.form.submit()">
+    <option value="">Все темы</option>
+    {% for key, label in TOPICS.items() %}<option value="{{ key }}" {% if key == topic %}selected{% endif %}>{{ label }}</option>{% endfor %}
+  </select>
+</form>
+<table class="table">
+  <thead><tr><th>Проблема</th><th>Тема</th><th>Упом.</th><th>Комм.</th><th>Губ.</th><th>Негатив</th><th>Последнее</th><th>Статус</th></tr></thead>
+  <tbody>
+  {% for p in rows %}
+  <tr>
+    <td><a href="/problems/{{ p.id }}"><b>{{ p.title }}</b></a>{% if p.address %}<br><span class="muted">{{ p.address }}</span>{% endif %}</td>
+    <td>{{ p.topic_label }}</td><td>{{ p.mentions }}</td><td>{{ p.comments }}</td>
+    <td>{% if p.governor %}<span class="gov-text">{{ p.governor }}</span>{% else %}–{% endif %}</td>
+    <td>{{ p.negative_share }}%</td><td>{{ fmt(p.last_seen) }}</td>
+    <td><span class="status st-{{ p.status }}">{{ STATUSES[p.status] }}</span></td>
+  </tr>
+  {% else %}
+  <tr><td colspan="8" class="muted">За период проблем нет.</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

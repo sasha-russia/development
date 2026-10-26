@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "liberation sans",
+        "createdAt": "2026-10-26T10:49:52.144Z",
+        "reason": "Claude: social/ is a separate internal monitoring app; DESIGN.md covers the news site only. PDF uses fonts installed in its Docker image."
+      }
+    ]
+  }
+}

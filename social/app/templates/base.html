@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Мониторинг{% endblock %} · Мытищи</title>
+  <link rel="stylesheet" href="/static/style.css">
+  {% block head %}{% endblock %}
+</head>
+<body class="page-{{ nav }}">
+{% if user %}
+<header class="topbar">
+  <a class="brand" href="/"><span class="brand-mark"></span>Мониторинг · Мытищи</a>
+  <nav>
+    <a href="/" {% if nav == 'dashboard' %}aria-current="page"{% endif %}>Карта</a>
+    <a href="/queue" {% if nav == 'queue' %}aria-current="page"{% endif %}>Отработка</a>
+    <a href="/problems" {% if nav in ('problems', 'problem') %}aria-current="page"{% endif %}>Проблемы</a>
+    <a href="/reports" {% if nav in ('reports', 'report_view') %}aria-current="page"{% endif %}>Отчёты</a>
+    <a href="/sources" {% if nav == 'sources' %}aria-current="page"{% endif %}>Источники</a>
+    {% if user.is_admin %}<a href="/settings" {% if nav == 'settings' %}aria-current="page"{% endif %}>Настройки</a>{% endif %}
+  </nav>
+  <form method="post" action="/logout" class="logout"><span>{{ user.login }}</span><button class="link">Выйти</button></form>
+</header>
+{% endif %}
+<main class="{% block main_class %}container{% endblock %}">
+{% block content %}{% endblock %}
+</main>
+{% block scripts %}{% endblock %}
+</body>
+</html>

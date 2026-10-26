@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ report.title }}{% endblock %}
+{% block content %}
+<p><a href="/reports">← Отчёты</a></p>
+{% include "_report_actions.html" %}
+<article class="report-screen">
+{% include "_report_body.html" %}
+</article>
+{% endblock %}

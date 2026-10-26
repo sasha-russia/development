@@ -1,0 +1,32 @@
+# docker compose up -d                       — app only, on 127.0.0.1:8000 (behind your own proxy)
+# docker compose --profile caddy up -d       — app plus Caddy with HTTPS for $DOMAIN
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./data:/data
+    ports:
+      - "127.0.0.1:8000:8000"
+    mem_limit: 900m
+
+  caddy:
+    image: caddy:2.8.4-alpine
+    restart: unless-stopped
+    profiles: ["caddy"]
+    environment:
+      DOMAIN: ${DOMAIN:-social.a-platonov.ru}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  caddy_data:
+  caddy_config:

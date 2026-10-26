@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Настройки{% endblock %}
+{% block content %}
+<h1>Настройки</h1>
+{% if msg %}<p class="ok-msg">{{ msg }}</p>{% endif %}
+<div class="settings-grid">
+  <section class="card">
+    <h2>Telegram</h2>
+    {% if not config.TG_API_ID %}
+      <p class="warn">Заполните TG_API_ID и TG_API_HASH в .env (их выдают на my.telegram.org → API development tools) и перезапустите систему.</p>
+    {% elif tg_session %}
+      <p>Аккаунт подключён. Каналы читаются от его имени.</p>
+      <form method="post" action="/settings/telegram/logout"><button class="btn">Отключить аккаунт</button></form>
+    {% else %}
+      <p>Войдите в аккаунт Telegram, от имени которого будут читаться каналы и чаты. Лучше завести отдельный аккаунт: он должен состоять в закрытых чатах из списка.</p>
+      <form id="tg-login" class="stack">
+        <label>Телефон<input name="phone" placeholder="+79991234567" required></label>
+        <button type="button" class="btn" id="tg-send">Получить код</button>
+        <label hidden>Код из Telegram<input name="code" autocomplete="one-time-code"></label>
+        <label hidden>Облачный пароль (если включён)<input name="password" type="password"></label>
+        <input type="hidden" name="phone_code_hash">
+        <button type="button" class="btn primary" id="tg-finish" hidden>Войти</button>
+        <p class="muted" id="tg-msg"></p>
+      </form>
+    {% endif %}
+  </section>
+
+  <section class="card">
+    <h2>Подключения</h2>
+    <table class="table compact">
+      <tr><th>ВКонтакте</th><td>{{ 'ключ задан' if config.VK_TOKEN else 'нет VK_TOKEN' }}</td></tr>
+      <tr><th>Классификатор</th><td>{% if config.ANTHROPIC_API_KEY %}Claude ({{ config.CLAUDE_MODEL }}){% else %}по словарям (нет ANTHROPIC_API_KEY){% endif %}</td></tr>
+      <tr><th>Ждут разбора</th><td>{{ unclassified }} сообщений</td></tr>
+      <tr><th>MAX</th><td>{{ 'бот настроен' if max_ready else 'нет MAX_BOT_TOKEN / MAX_CHAT_ID' }}</td></tr>
+      <tr><th>Сбор</th><td>каждые {{ config.POLL_MINUTES }} мин, губернатор — {{ config.PRIORITY_POLL_MINUTES }} мин</td></tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Дополнительные слова для отбора</h2>
+    <p class="muted">Под постами губернатора сохраняются только комментарии про округ: названия всех 92 населённых пунктов, микрорайонов и местных объектов уже учтены. Здесь можно добавить свои слова (улицы, ЖК, фамилии), через запятую.</p>
+    <form method="post" action="/settings/keywords" class="stack">
+      <textarea name="keywords" rows="4" placeholder="жк новое медведково, ул. летная">{{ keywords }}</textarea>
+      <button class="btn">Сохранить</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Пользователи</h2>
+    <table class="table compact">
+      {% for u in users %}
+      <tr><td>{{ u.login }}{% if u.is_admin %} <span class="muted">админ</span>{% endif %}</td>
+        <td>{% if u.id != user.id %}<form method="post" action="/settings/users/{{ u.id }}/delete" onsubmit="return confirm('Удалить пользователя?')"><button class="link danger">удалить</button></form>{% endif %}</td></tr>
+      {% endfor %}
+    </table>
+    <form method="post" action="/settings/users" class="stack">
+      <label>Логин<input name="login" required></label>
+      <label>Пароль<input name="password" type="password" required minlength="8"></label>
+      <label class="check"><input type="checkbox" name="is_admin"> Администратор</label>
+      <button class="btn">Добавить или сменить пароль</button>
+    </form>
+  </section>
+</div>
+<script>
+const f = document.getElementById("tg-login");
+if (f) {
+  const msg = document.getElementById("tg-msg");
+  const post = async (url) => {
+    const res = await fetch(url, { method: "POST", body: new FormData(f) });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || res.status);
+    return data;
+  };
+  document.getElementById("tg-send").onclick = async () => {
+    try {
+      const data = await post("/settings/telegram/code");
+      f.elements.phone_code_hash.value = data.phone_code_hash;
+      f.elements.code.closest("label").hidden = false;
+      document.getElementById("tg-finish").hidden = false;
+      msg.textContent = "Код отправлен в Telegram.";
+    } catch (e) { msg.textContent = "Ошибка: " + e.message; }
+  };
+  document.getElementById("tg-finish").onclick = async () => {
+    try {
+      const data = await post("/settings/telegram/login");
+      if (data.result === "password_needed") {
+        f.elements.password.closest("label").hidden = false;
+        msg.textContent = "Введите облачный пароль и нажмите «Войти» ещё раз.";
+      } else { location.href = "/settings?msg=Telegram+подключён"; }
+    } catch (e) { msg.textContent = "Ошибка: " + e.message; }
+  };
+}
+</script>
+{% endblock %}
