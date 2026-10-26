@@ -18,7 +18,6 @@ npm run build    # статика в out/
 - `src/components` — компоненты (шапка, карточки)
 - `src/lib/content.ts` — загрузка материалов: из редакционной системы, если задан `CMS_URL`, иначе демо-материалы из `src/lib/news.ts`
 - `cms/` — редакционная система: материалы, задачи, сотрудники, посты в Telegram/ВКонтакте/MAX (см. `cms/README.md`)
-- `social/` — мониторинг соцсетей городского округа Мытищи: сбор из Telegram и VK, тепловая карта, отчёты в PDF и MAX (см. `social/README.md`)
 - `.github/workflows/deploy.yml` — сборка и деплой на GitHub Pages при пуше в `main`
 - `.claude/skills` — skills для Claude Code: `impeccable` (дизайн, `/impeccable …`) и
   `design-taste-frontend` (taste-skill), `animate` (анимации, Emil Kowalski)
@@ -27,3 +26,10 @@ npm run build    # статика в out/
 
 Один раз: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 Дальше каждый пуш в `main` публикует сайт.
+
+## Связанные проекты
+
+Раньше лежали в этом репозитории, теперь у каждого свой (закрытый):
+
+- [sasha-russia/speech](https://github.com/sasha-russia/speech) — расшифровщик аудио и видео, speech.a-platonov.ru
+- [sasha-russia/social-monitor](https://github.com/sasha-russia/social-monitor) — мониторинг соцсетей городского округа Мытищи, social.a-platonov.ru
