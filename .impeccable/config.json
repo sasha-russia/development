@@ -8,6 +8,12 @@
         "value": "liberation sans",
         "createdAt": "2026-10-26T10:49:52.144Z",
         "reason": "Claude: social/ is a separate internal monitoring app; DESIGN.md covers the news site only. PDF uses fonts installed in its Docker image."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "roboto",
+        "createdAt": "2026-10-26T11:03:59.211Z",
+        "reason": "Claude: Roboto is only a fallback in the system-ui font stack of social/, a separate internal app not covered by DESIGN.md (news site)."
       }
     ]
   }
