@@ -26,3 +26,10 @@ npm run build    # статика в out/
 
 Один раз: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 Дальше каждый пуш в `main` публикует сайт.
+
+## Связанные проекты
+
+Раньше лежали в этом репозитории, теперь у каждого свой (закрытый):
+
+- [sasha-russia/speech](https://github.com/sasha-russia/speech) — расшифровщик аудио и видео, speech.a-platonov.ru
+- [sasha-russia/social-monitor](https://github.com/sasha-russia/social-monitor) — мониторинг соцсетей городского округа Мытищи, social.a-platonov.ru
